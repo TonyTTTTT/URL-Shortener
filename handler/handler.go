@@ -17,7 +17,7 @@ func New(schema string, host string, storage storage.Service) *router.Router {
 	router := router.New()
 
 	h := handler{schema, host, storage}
-	router.POST("/encode/", responseHandler(h.encode))
+	router.POST("/api/v1/urls", responseHandler(h.encode))
 	router.GET("/{shortLink}", h.redirect)
 	router.GET("/{shortLink}/info", responseHandler(h.decode))
 	return router
@@ -36,6 +36,7 @@ type handler struct {
 }
 
 func responseHandler(h func(ctx *fasthttp.RequestCtx) (interface{}, int, error)) fasthttp.RequestHandler {
+	fmt.Printf("in responseHandler\n")
 	return func(ctx *fasthttp.RequestCtx) {
 		data, status, err := h(ctx)
 		if err != nil {
@@ -99,9 +100,11 @@ func (h handler) decode(ctx *fasthttp.RequestCtx) (interface{}, int, error) {
 }
 
 func (h handler) redirect(ctx *fasthttp.RequestCtx) {
+	fmt.Printf("In redirect()\n")
 	code := ctx.UserValue("shortLink").(string)
 
 	uri, err := h.storage.Load(code)
+	fmt.Printf("uri: %s", uri)
 	if err != nil {
 		ctx.Response.Header.Set("Content-Type", "application/json")
 		ctx.Response.SetStatusCode(http.StatusNotFound)
