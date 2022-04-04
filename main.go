@@ -6,7 +6,6 @@ import (
 	"urlShorter/handler"
 	"urlShorter/storage/redis"
 	
-	"fmt"
 	"github.com/valyala/fasthttp"
 )
 
@@ -22,11 +21,11 @@ func main() {
 		log.Fatal(err)
 	}
 	defer service.Close()
-	fmt.Println("Hello World")
+	// fmt.Println("Hello World")
 	
 	router := handler.New(configuration.Options.Schema, configuration.Options.Prefix, service)
-	fmt.Println("Hello World")
+	// fmt.Println("Hello World")
 	log.Print("Hello Pig")
 	log.Fatal(fasthttp.ListenAndServe(":"+configuration.Server.Port, router.Handler))
-	fmt.Println("Hello World")
+	// fmt.Println("Hello World")
 }
