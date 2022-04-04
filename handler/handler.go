@@ -111,6 +111,7 @@ func (h handler) redirect(ctx *fasthttp.RequestCtx) {
 	if err != nil {
 		ctx.Response.Header.Set("Content-Type", "application/json")
 		ctx.Response.SetStatusCode(http.StatusNotFound)
+		err = json.NewEncoder(ctx.Response.BodyWriter()).Encode("id not exists!")
 		return
 	}
 
