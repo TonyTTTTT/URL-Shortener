@@ -17,7 +17,7 @@ it will response a json like
 {
 	"success": true,
 	"shortUrl": "http://localhost:8080/OTv0FdGU8Ng",
-	"id": OTv0FdGU8Ng"
+	"id": "OTv0FdGU8Ng"
 }
 ```
 - redirect
