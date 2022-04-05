@@ -25,3 +25,14 @@ it will response a json like
 $ curl -L -X GET localhost:8080/OTv0FdGU8Ng
 ```
 then it should sucess redirect to https://github.com/TonyTTTTT/URL-Shortener
+## Projcet structure
+- base62 is the module for encode the integer into string by base62 encode
+- config is the module for loading and applying the configuration.json file
+- handler is the module for handle the web request
+- storage/redis is the module for interact with redis DB
+- log is the dir that I record my progress and findings
+- main.go is the entry point of this program
+## Package Use
+- fasthttp/router for handling the web request
+- valyala/fasthttp for create the response object
+- redigo for interacting with redsi DB
