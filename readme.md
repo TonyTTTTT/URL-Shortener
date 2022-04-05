@@ -1,5 +1,5 @@
 # URL Shortener
-Honestly saying, I have no experience using Golang or Node.js before, so I [reference](https://intersog.com/blog/how-to-write-a-custom-url-shortener-using-golang-and-redis)a tutorial online to complete this project. 
+Honestly saying, I have no experience using Golang or Node.js before, so I [reference](https://intersog.com/blog/how-to-write-a-custom-url-shortener-using-golang-and-redis) a tutorial online to complete this project. 
 ## To run this project
 - First install redis and run the redis server refer to [this](https://redis.io/docs/getting-started/)
 ```shell
